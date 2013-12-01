@@ -1,25 +1,109 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Styles -->
-    <link rel="stylesheet"  type="text/css" href="/css/theme/bootstrap.min.css" />
-    <link rel="stylesheet"  type="text/css" href="/css/theme/css/jquery-ui-1.10.0.custom.css" />
-    <link rel="stylesheet"  type="text/css" href="/css/theme/font-awesome.min.css" />
-    <link rel="stylesheet"  type="text/css" href="/css/styles.css" />
-    <link rel="stylesheet"  type="text/css" href="/css/normalise.css" />
-     
-</head>
+
+
+<!doctype html><html>
+    <head>
+        <title>Space Bot War</title>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="/src/js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="/src/js/jquery.json.min.js"></script>
+        <script src="/src/js/bootstrap.js"></script>
+        <link href="/css/theme/bootstrap.css" rel="stylesheet" />
+        <link href="/css/bootstrap-theme.css" rel="stylesheet" />
+        <script src="/src/js/humane.min.js"></script>
+        <link href="/css/jackedup.css" rel="stylesheet" />
+<script>//<![CDATA[
+
+  humane.baseCls = 'humane-jackedup';
+
+//]]></script>
+
+        <script type="text/javascript" src="/src/room.js"></script>
+        <style type="text/css">
+        <!--
+        body {
+            background-color: #ededed;
+        }
+        #icydee_canvas {
+            background: #fff;
+            border: 1px;
+            solid : #cbcbcb;
+        }
+        -->
+        </style>
+        <script>
+
+        </script>
+    </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Space Bot War</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right"  method="get" action="/register" id="register">
+            <button type="submit" class="btn btn-success">Register</button>
+          </form>
+          <form class="navbar-form navbar-right"  method="post" action="/login" id="login">
+            <input type="hidden" name="from_url" id="from_url" value="http://spacebotwar.com:3000/">
+            <div class="form-group">
+              <input name="username" id="username" type="text" placeholder="Username" class="form-control">
+            </div>
+            <div class="form-group">
+              <input name="password" id="password" type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
 
-    <script type="text/javascript">
-        // Set up some globals.
-        window.server = undefined;
-        window.serverUrl = '//git.icydee.com/';
-    </script>
 
-    <!-- Get RequreJs, which calls load.js and starts everything. -->
-    <script type="text/javascript" data-main="src/load" src="/src/js/requirejs.js"></script>
+<div class="container">
+  <div class="page-header">
+    <h1></h1>
+  </div>
+  <div class="row">
+    <div class="span10" id="content">
+        <div class="container">
+        <h2>Space Bot War</h2>
+    
+        <p>In the 31st Century mankind is exploring the galaxy, but the risk of being attacked by aliens or pirates is so great that 
+        spacecraft are unmanned and fully automated.</p>
 
-    <div id="sbw"></div>
+        <p>Spacecraft (now called Spacebots) are pre-programmed to perform their actions. In the event of attack by enemies the Spacebots with the best program will
+        usually win. Spacebot programmers are highly paid and regarded by society in the same way as princes or pop-stars were centuries earlier.</p>
+
+        <p>The training for Spacebot programmers is relatively simple, but competition for these places is intense. Weekly tournaments are run where 
+        the best spacebots compete against each other to determine their rank.</p>
+
+        <h3>Coming Soon</h3>
+
+        <p>This game is still in a pre-alpha state and is not yet open for membership</p>
+
+        <p>the following is a demonstration which will (soon) demonstrate two fleets of ships competing against each other</p>
+
+        <p>Space Bot War is inspired by the 1970's game RobotWar (see <a href="http://en.wikipedia.org/wiki/Robotwar" target="_blank">Wikipedia</a>)</p>
+
+            <table border="1" height="100%" style="margin:auto">
+                <tr>
+                    <td style="vertical-align:middle">
+                        <div id="arena"></div>
+                    </td>
+                    <td><div id="debug"></div></td>
+                </tr>
+            </table>
+        </div>
+        <canvas id="icydee_canvas" width="500" height="500"></canvas>
+    </div>
+  </div>
+</div>
+
 </body>
-</html>
+
