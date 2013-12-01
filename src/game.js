@@ -5,6 +5,10 @@ function($, Template, TmplGame) {
         Template.loadStrings(TmplGame);
 
         this.init = function() {
+
+            $('#sbw').html(Template.read.game_main_screen({
+                foo     : 'bar'
+            }));
         };
     }
     
