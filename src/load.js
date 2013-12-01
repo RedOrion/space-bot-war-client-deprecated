@@ -1,23 +1,30 @@
+
 require.config({
     paths: {
-        jquery          : 'js/jquery-2.0.3',
-        'jquery.bootstrap'       : 'js/bootstrap',
-        jqueryUI        : 'js/jquery-ui-1.10.3.custom',
-        underscore      : 'js/underscore',
-        templates       : '../templates',
+        jquery              : 'js/jquery-2.0.3.min',
+        'jquery.bootstrap'  : 'js/bootstrap',
+        'jquery.json'       : 'js/jquery.json.min',
+        jqueryUI            : 'js/jquery-ui-1.10.3.custom',
+        underscore          : 'js/underscore',
+        templates           : '../templates',
+        humane              : 'js/humane.min'
     },
     shim: {
-        jqueryUI        : ['jquery'],
-        "jquery.bootstrap" : {
-            deps: ["jquery"]
+        jqueryUI            : ['jquery'],
+        "jquery.bootstrap"  : {
+            deps            : ["jquery"]
+        },
+        "jquery.json"       : {
+            deps            : ["jquery"]
         },
         underscore      : {
-            exports     : '_',
-        },
+            exports     : '_'
+        }
     }
 });
 
-requirejs(['jquery', 'game', 'jquery.bootstrap', 'game'], function($, Game) {
+
+requirejs(['jquery', 'game', 'humane', 'jquery.json', 'jquery.bootstrap'], function($, Game, Humane, Json) {
 
     if (typeof(window.serverUrl) == 'undefined') {
         window.url = window.location.protocol + '//' + window.server + '.spacebotwar.com';
@@ -25,7 +32,6 @@ requirejs(['jquery', 'game', 'jquery.bootstrap', 'game'], function($, Game) {
     else {
         window.url = window.serverUrl;
     }
-
     Game.init();
 });
 
