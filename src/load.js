@@ -6,6 +6,7 @@ require.config({
         'jquery.json'       : 'js/jquery.json.min',
         jqueryUI            : 'js/jquery-ui-1.10.3.custom',
         underscore          : 'js/underscore',
+        backbone            : 'js/backbone-min',
         templates           : '../templates',
         humane              : 'js/humane.min'
     },
@@ -19,6 +20,10 @@ require.config({
         },
         underscore      : {
             exports     : '_'
+        },
+        backbone        : {
+            deps            : ['underscore', 'jquery'],
+            exports         : 'Backbone'
         }
     }
 });
