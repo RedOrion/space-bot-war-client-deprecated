@@ -28,16 +28,10 @@ require.config({
     }
 });
 
-alert('got here');
 
-requirejs(['jquery', 'game', 'humane', 'jquery.json', 'jquery.bootstrap'], function($, Game, Humane, Json) {
+requirejs(['jquery', 'todo', 'humane', 'jquery.json', 'jquery.bootstrap'], function($, Todo, Humane, Json) {
 
-    if (typeof(window.serverUrl) == 'undefined') {
-        window.url = window.location.protocol + '//' + window.server + '.spacebotwar.com';
-    }
-    else {
-        window.url = window.serverUrl;
-    }
-    Game.init();
+    window.url = window.serverUrl;
+    Todo.init();
 });
 
