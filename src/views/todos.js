@@ -1,19 +1,13 @@
-/*global Backbone, jQuery, _, ENTER_KEY */
-var app = app || {};
-
-(function ($) {
+define([    'jquery',   'underscore',   'backbone',     'text!templates/todos.html',    'common'],
+function(    $,          _,              Backbone,       todosTemplate,                  Common) {
     'use strict';
 
-    // Todo Item View
-    // --------------
-
-    // The DOM element for a todo item...
-    app.TodoView = Backbone.View.extend({
+    var TodoView = Backbone.View.extend({
         //... is a list tag.
         tagName:  'li',
 
         // Cache the template function for a single item.
-        template: _.template($('#item-template').html()),
+        template: _.template(todosTemplate),
 
         // The DOM events specific to an item.
         events: {
@@ -49,8 +43,8 @@ var app = app || {};
         isHidden: function () {
             var isCompleted = this.model.get('completed');
             return (// hidden cases only
-                (!isCompleted && app.TodoFilter === 'completed') ||
-                (isCompleted && app.TodoFilter === 'active')
+                (!isCompleted && Common.TodoFilter === 'completed') ||
+                (isCompleted && Common.TodoFilter === 'active')
             );
         },
 
@@ -88,7 +82,7 @@ var app = app || {};
 
         // If you hit `enter`, we're through editing the item.
         updateOnEnter: function (e) {
-            if (e.which === ENTER_KEY) {
+            if (e.which === Common.ENTER_KEY) {
                 this.close();
             }
         },
@@ -98,4 +92,6 @@ var app = app || {};
             this.model.destroy();
         }
     });
-})(jQuery);
+
+    return TodoView;
+});

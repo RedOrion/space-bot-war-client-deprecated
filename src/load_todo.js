@@ -7,6 +7,7 @@ require.config({
         jqueryUI            : 'js/jquery-ui-1.10.3.custom',
         underscore          : 'js/underscore',
         backbone            : 'js/backbone-min',
+        backboneLocalstorage : 'js/backbone.localStorage',
         templates           : '../templates',
         humane              : 'js/humane.min'
     },
@@ -24,14 +25,21 @@ require.config({
         backbone        : {
             deps            : ['underscore', 'jquery'],
             exports         : 'Backbone'
-        }
+        },
+        backboneLocalstorage : {
+            deps            : ['backbone'],
+            exports         : 'Store'
+        },
+        text                : 'js/requirejs-text'
     }
 });
 
 
-requirejs(['jquery', 'todo', 'humane', 'jquery.json', 'jquery.bootstrap'], function($, Todo, Humane, Json) {
+require([   'backbone', 'views/app',   'routers/router'],
+function(    Backbone,   AppView,       Workspace) {
+    new Workspace();
+    Backbone.history.start();
 
-    window.url = window.serverUrl;
-    Todo.init();
+    new AppView;
 });
 

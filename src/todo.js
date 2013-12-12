@@ -1,29 +1,21 @@
 define (['jquery', 'backbone'], function($, Backbone) {
-
-    var Todo = Backbone.Model.extend({
+    var self;
+    Todo = Backbone.Model.extend({
         defaults : {
             title   :       '',
             completed :     false
         },
+        initialize : function() {
+            console.log('Got to initialize');
+            self = this;
+            console.log(self);
+        },
         init : function() {
             //alert("got here too "+this);
-            console.log(this);
+            console.log(self);
         }
     });
-    var myTodo = new Todo({
+    return new Todo({
         title : "Check attributes property of the logged models in the console.",
     });
-    return myTodo;
 });
-        
-//var Todo = Backbone.Model.extend({
-//    defaults : {
-//        title :         '',
-//        completed :     false
-//    }
-//});
-//
-//var myTodo = new Todo({
-//    title : "Check attributes property of the logged models in the console."
-//});
-
