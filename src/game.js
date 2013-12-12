@@ -11,8 +11,8 @@ function($, Template, TmplGame) {
             }));
 
             // Make a connection to the lobby
-
-            var ws = new WebSocket("ws://localhost:5000/ws/game/lobby");
+            var wsUrl = window.wsUrl || "ws://localhost:5000/ws/game/lobby";
+            var ws = new WebSocket(wsUrl);
 
             ws.onerror = function(e) {
                 alert('cannot connect '+e);

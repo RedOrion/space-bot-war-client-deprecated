@@ -11,6 +11,7 @@
 <script>//<![CDATA[
 
   humane.baseCls = 'humane-jackedup';
+  window.wsUrl = 'ws://localhost:5000/ws/game/lobby';
 
 //]]></script>
 
